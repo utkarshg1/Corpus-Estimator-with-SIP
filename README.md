@@ -20,17 +20,33 @@ The **Corpus Estimator** is a Streamlit app designed to help users estimate the 
   - **Estimated Monthly SIP**
 
 #### How to Use
-1. Install required packages:
-   ```bash
+
+1. Clone this repository:
+   ```cmd
+   git clone https://github.com/utkarshg1/Corpus-Estimator-with-SIP.git
+   ```
+
+2. Create a python virtual environment:
+   ```cmd
+   python -m venv venv
+   ```
+
+3. Activate Virtual environment (Windows):
+   ```cmd
+   venv\Scripts\activate
+   ```
+
+4. Install required packages:
+   ```cmd
    pip install -r requirements.txt
    ```
 
-2. Run the app:
-   ```bash
+5. Run the app:
+   ```cmd
    python -m streamlit run app.py
    ```
 
-3. Enter your details and click **"Calculate"** to get your results.
+6. Enter your details and click **"Calculate"** to get your results.
 
 #### Calculation Logic
 The app calculates:
