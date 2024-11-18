@@ -10,7 +10,8 @@ st.subheader("by Utkarsh Gaikwad")
 # Inputs
 monthly_expense = st.number_input(
     "Monthly Expense (INR)", min_value=1000, step=1000)
-dob = st.date_input("Date of Birth", max_value=date.today())
+dob = st.date_input(
+    "Date of Birth", min_value=date(1990, 1, 1), max_value=date.today())
 inflation_rate = st.number_input(
     "Inflation Rate (%)", min_value=0.0, max_value=100.0, value=6.0)
 withdrawal_rate = st.number_input(
@@ -22,25 +23,27 @@ retirement_age = st.number_input(
 safety_multiplier = st.number_input(
     "Safety Multiplier", min_value=1.0, max_value=5.0, value=1.5)
 
-# Create an instance of CorpusEstimator
-corpus_estimator = CorpusEstimator(
-    monthly_expense=monthly_expense,
-    dob=dob,
-    inflation_rate=inflation_rate,
-    withdrawal_rate=withdrawal_rate,
-    asset_growth_rate=asset_growth_rate,
-    retirement_age=retirement_age,
-    safety_multiplier=safety_multiplier
-)
 
-# Results
-current_age = corpus_estimator.calculate_age()
-years_to_retire = corpus_estimator.calculate_years_to_retire()
-estimated_corpus = corpus_estimator.estimate_corpus()
-estimated_sip = corpus_estimator.estimate_sip()
+if st.button("calculate"):
+    # Create an instance of CorpusEstimator
+    corpus_estimator = CorpusEstimator(
+        monthly_expense=monthly_expense,
+        dob=dob,
+        inflation_rate=inflation_rate,
+        withdrawal_rate=withdrawal_rate,
+        asset_growth_rate=asset_growth_rate,
+        retirement_age=retirement_age,
+        safety_multiplier=safety_multiplier
+    )
 
-# Display Results
-st.write(f"### Current Age: {current_age} years")
-st.write(f"### Years to Retirement: {years_to_retire} years")
-st.write(f"### Estimated Corpus Needed: ₹{estimated_corpus:,.0f}")
-st.write(f"### Estimated Monthly SIP: ₹{estimated_sip:,.0f}")
+    # Results
+    current_age = corpus_estimator.calculate_age()
+    years_to_retire = corpus_estimator.calculate_years_to_retire()
+    estimated_corpus = corpus_estimator.estimate_corpus()
+    estimated_sip = corpus_estimator.estimate_sip()
+
+    # Display Results
+    st.write(f"### Current Age: {current_age} years")
+    st.write(f"### Years to Retirement: {years_to_retire} years")
+    st.write(f"### Estimated Corpus Needed: ₹{estimated_corpus:,.0f}")
+    st.write(f"### Estimated Monthly SIP: ₹{estimated_sip:,.0f}")
