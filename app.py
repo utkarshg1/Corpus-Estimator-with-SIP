@@ -24,7 +24,7 @@ safety_multiplier = st.number_input(
     "Safety Multiplier", min_value=1.0, max_value=5.0, value=1.5)
 
 
-if st.button("calculate"):
+if st.button("Calculate"):
     # Create an instance of CorpusEstimator
     corpus_estimator = CorpusEstimator(
         monthly_expense=monthly_expense,
