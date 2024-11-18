@@ -1,7 +1,6 @@
 from calculations import CorpusEstimator
 import streamlit as st
 from datetime import date
-import plotly.graph_objects as go
 
 # Setup page config and title
 st.set_page_config(page_title="Corpus Estimator")
